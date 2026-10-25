@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#003428">
+<meta name="description" content="AMORI Cafe & Lounge, Heliopolis — menu / منيو أموري كافيه & لاونج">
+<title>AMORI Cafe &amp; Lounge — Menu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23003428'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23ECCA73' stroke-width='1.6'/%3E%3C/svg%3E">
+<!-- The ONLY external resource: Google Fonts (display=swap; system fallbacks below keep the page usable if it fails) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<a class="skip" href="#menu" data-i18n="skip">Skip to menu</a>
+
+<!-- inline icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.6s-8.4-5.1-8.4-11A4.7 4.7 0 0 1 12 6.9a4.7 4.7 0 0 1 8.4 2.7c0 5.9-8.4 11-8.4 11z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12h-11z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2 6 6 3-6 3-2 6-2-6-6-3 6-3z"/></symbol>
+</svg>
+
+<noscript><p style="padding:24px;text-align:center">Please enable JavaScript to view the menu · يرجى تفعيل جافا سكريبت لعرض المنيو</p></noscript>
+
+<div id="app">
+
+  <!-- ============== WELCOME HEADER ============== -->
+  <header class="hero">
+    <div class="arcs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="topbar">
+      <span class="badge" id="headTable" hidden></span>
+      <button class="lang-btn" id="langBtn" type="button" style="margin-inline-start:auto"></button>
+    </div>
+    <div class="brand">
+      <div class="est" lang="en" dir="ltr">EST. 2025</div>
+      <!-- LOGO SLOT: set LOGO_SRC in the script (section 1) and this image replaces the text wordmark -->
+      <h1 class="wordmark" id="wordmark" lang="en" dir="ltr">AMORI</h1>
+      <img class="logo-img" id="logoImg" hidden alt="AMORI Cafe &amp; Lounge" decoding="async">
+      <p class="tagline" lang="en" dir="ltr">Cafe &amp; Lounge</p>
+    </div>
+    <p class="greet" id="greet"></p>
+    <p class="welcome" data-i18n="welcome"></p>
+    <div class="cta">
+      <button class="btn btn-gold cta-main" id="surpriseBtn" type="button"><svg class="i"><use href="#i-spark"/></svg><span data-i18n="surprise"></span></button>
+      <button class="btn btn-line cta-sub" id="quizBtn" type="button"><span data-i18n="quiz"></span><small data-i18n="quizSub"></small></button>
+    </div>
+  </header>
+
+  <div class="ribbon" aria-hidden="true" lang="en"><div class="ribbon-in"><div class="ribbon-track">
+    <span>WHERE LUXURY MEETS COMFORT AND TASTE</span><i></i><span>WHERE LUXURY MEETS COMFORT AND TASTE</span><i></i><span>WHERE LUXURY MEETS COMFORT AND TASTE</span><i></i><span>WHERE LUXURY MEETS COMFORT AND TASTE</span><i></i><span>WHERE LUXURY MEETS COMFORT AND TASTE</span><i></i><span>WHERE LUXURY MEETS COMFORT AND TASTE</span><i></i><span>WHERE LUXURY MEETS COMFORT AND TASTE</span><i></i><span>WHERE LUXURY MEETS COMFORT AND TASTE</span><i></i>
+  </div></div></div>
+
+  <!-- ============== SEARCH + FILTERS ============== -->
+  <div class="toolbar" role="search">
+    <div class="search">
+      <svg class="i"><use href="#i-search"/></svg>
+      <label class="sr" for="q" data-i18n="searchLabel"></label>
+      <input id="q" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" data-i18n-ph="searchPh">
+      <button class="icon-btn clear" id="qClear" type="button" hidden data-i18n-aria="clearSearch"><svg class="i"><use href="#i-close"/></svg></button>
+    </div>
+    <button class="tool" id="filterBtn" type="button" aria-expanded="false" aria-controls="filters" data-i18n-aria="filters"><svg class="i"><use href="#i-sliders"/></svg><span class="dot" id="filterDot" hidden></span></button>
+    <button class="tool" id="favBtn" type="button" aria-pressed="false" data-i18n-aria="favorites"><svg class="i"><use href="#i-heart"/></svg><span class="num" id="favNum" hidden>0</span></button>
+  </div>
+
+  <section class="filters" id="filters" hidden aria-labelledby="fPriceT">
+    <h3 id="fPriceT" data-i18n="priceRange"></h3>
+    <div class="range-row"><label for="pMin" data-i18n="from"></label><input type="range" id="pMin"><output id="pMinOut"></output></div>
+    <div class="range-row"><label for="pMax" data-i18n="to"></label><input type="range" id="pMax"><output id="pMaxOut"></output></div>
+    <h3 style="margin-top:16px" data-i18n="categories"></h3>
+    <div class="chips" id="filterChips"></div>
+    <div class="filters-foot"><button class="linkbtn" id="resetBtn" type="button" data-i18n="reset"></button></div>
+  </section>
+
+  <div class="statusrow"><span id="count" aria-live="polite"></span></div>
+
+  <!-- ============== STICKY CATEGORY BAR ============== -->
+  <nav class="catbar" id="catbar" data-i18n-aria="catNav">
+    <div class="catscroll" id="catscroll"></div>
+  </nav>
+
+  <!-- ============== MENU (rendered from MENU data) ============== -->
+  <main id="menu" tabindex="-1"></main>
+
+  <div class="empty" id="empty" hidden>
+    <h2 class="display" id="emptyT"></h2>
+    <p id="emptyP"></p>
+    <button class="btn btn-sand" id="emptyReset" type="button" data-i18n="reset"></button>
+  </div>
+
+  <footer class="foot">
+    <div class="wm" aria-hidden="true" lang="en">AMORI</div>
+    <p class="vat" id="vatNote"></p>
+    <p class="hrs" id="hours"></p>
+  </footer>
+</div>
+
+<!-- ============== FLOATING ORDER BUTTON ============== -->
+<button class="fab" id="fab" type="button" hidden>
+  <span class="fab-l"><svg class="i"><use href="#i-bag"/></svg><span data-i18n="viewOrder"></span><span class="fab-count" id="fabCount">0</span></span>
+  <span class="fab-total" id="fabTotal"></span>
+</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============== SHEET: MY ORDER ============== -->
+<div class="sheet" id="sheet-order" hidden>
+  <div class="scrim" data-close></div>
+  <section class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="orderT" tabindex="-1">
+    <div class="grab"></div>
+    <div class="sheet-head">
+      <h2 class="display" id="orderT" data-i18n="myOrder"></h2>
+      <button class="linkbtn" id="clearBtn" type="button" data-i18n="clearOrder"></button>
+      <button class="icon-btn" type="button" data-close data-i18n-aria="close"><svg class="i"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="sheet-body">
+      <div id="orderEmpty" class="oempty" data-i18n="orderEmpty"></div>
+      <div id="orderFull">
+        <div class="olist" id="olist"></div>
+        <div class="totals">
+          <div><span data-i18n="subtotal"></span><span id="tSub"></span></div>
+          <div><span data-i18n="vat"></span><span id="tVat"></span></div>
+          <div class="grand"><span data-i18n="total"></span><span id="tTot"></span></div>
+        </div>
+        <p class="note estimate" data-i18n="estimate"></p>
+
+        <div class="field" id="tableField">
+          <span class="lbl" data-i18n="tableLabel"></span>
+          <div class="tablerow" id="tableShown" hidden><span class="badge" id="sheetTable"></span></div>
+          <span class="err" id="tableErr" data-i18n="tableRequired"></span>
+        </div>
+        <div class="field">
+          <label for="notes" data-i18n="notesLabel"></label>
+          <textarea id="notes" rows="2" maxlength="200" data-i18n-ph="notesPh"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-foot" id="orderFoot">
+      <p class="note strong" id="sendNote"></p>
+      <button class="btn btn-gold btn-wa" id="waBtn" type="button" hidden data-i18n="sendWa"></button>
+      <button class="btn btn-sand" id="copyBtn" type="button" data-i18n="copyOrder"></button>
+    </div>
+  </section>
+</div>
+
+<!-- ============== SHEET: SURPRISE ME ============== -->
+<div class="sheet" id="sheet-surprise" hidden>
+  <div class="scrim" data-close></div>
+  <section class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="surpriseT" tabindex="-1">
+    <div class="grab"></div>
+    <div class="sheet-head">
+      <h2 class="display" id="surpriseT" data-i18n="surprise"></h2>
+      <button class="icon-btn" type="button" data-close data-i18n-aria="close"><svg class="i"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="sheet-body">
+      <div class="stage" id="stage" aria-live="polite"></div>
+      <h3 class="sub" data-i18n="surpriseFrom"></h3>
+      <div class="chips" id="sCats"></div>
+      <h3 class="sub"><span data-i18n="maxBudget"></span> · <span class="budget-val" id="sBudgetOut"></span></h3>
+      <input type="range" id="sBudget" data-i18n-aria="maxBudget">
+    </div>
+    <div class="sheet-foot"><button class="btn btn-gold" id="spinBtn" type="button"></button></div>
+  </section>
+</div>
+
+<!-- ============== SHEET: MOOD QUIZ ============== -->
+<div class="sheet" id="sheet-quiz" hidden>
+  <div class="scrim" data-close></div>
+  <section class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="quizT" tabindex="-1">
+    <div class="grab"></div>
+    <div class="sheet-head">
+      <h2 class="display" id="quizT" data-i18n="quiz"></h2>
+      <button class="icon-btn" type="button" data-close data-i18n-aria="close"><svg class="i"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="sheet-body"><div class="dots" id="qDots" aria-hidden="true"><i></i><i></i><i></i></div><div id="qBody"></div></div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
