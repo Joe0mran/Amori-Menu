@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 QR-code menu for AMORI Cafe & Lounge (Heliopolis, Cairo), served as a static site on GitHub Pages. Customers scan a per-table QR code on their phone. Frontend only: vanilla HTML/CSS/JS, no build step, no framework, no backend, no package.json, no tests or linter. The only external resource allowed is Google Fonts.
 
-Files: `index.html` (markup), `styles.css`, `script.js`. They must stay in the same folder (relative links). `Amori-Design-System.pdf` is the source of truth for colours, type, logo rules and component specs; read it before visual changes. It, `logo.jpg`, `loogo.png` and `make-qr-links.py` are local-only (in `.gitignore`).
+Files: `index.html` (markup), `styles.css`, `script.js`. They must stay in the same folder (relative links). `Amori-Design-System.pdf` is the source of truth for colours, type, logo rules and component specs; read it before visual changes. It, `logo.jpg` and `loogo.png` are local-only (in `.gitignore`). `make-qr-links.py` and the test QR images in `qr/` are committed.
 
 ## Running / checking
 

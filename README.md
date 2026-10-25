@@ -45,7 +45,7 @@ Each table has its own signed link:
 https://joe0mran.github.io/Amori-Menu/?table=NUMBER&k=KEY
 ```
 
-`KEY` is generated, not chosen. Create the links with the helper script (kept locally, not in this repo):
+`KEY` is generated, not chosen. Create the links with the helper script `make-qr-links.py` (its `TABLE_SECRET` must match `script.js`):
 
 ```
 python3 make-qr-links.py 1-20 A3
